@@ -2,6 +2,7 @@
   "type": "module",
   "dependencies": {
     "dotenv": "^16.4.7",
+    "firebase-admin": "^13.2.0",
     "pg": "^8.14.1"
   },
   "devDependencies": {
@@ -11,6 +12,6 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "dev": "node --loader ts-node/esm ./servicios/test.ts"
+    "dev": "node --loader ts-node/esm ./servicios/conexion/test.ts"
   }
 }

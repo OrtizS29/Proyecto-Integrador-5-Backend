@@ -4,24 +4,27 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import usuarioRoutes from "./routes/usuarioRoutes";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 /*
  * MiDdleware para permitir solicitudes desde Angular
  */
 app.use(cors({
-    origin: 'http://localhost:4200',
+    origin: 'http://localhost:4300',
     credentials: true
   }));
-  
 /*
  *  Middleware para parsear JSON 
  */
 app.use(express.json());
+/*
+ * Punt base para las rutas API REST
+ */
+app.use("/api", usuarioRoutes);
 /*
  * Escribe un texto plano
  */

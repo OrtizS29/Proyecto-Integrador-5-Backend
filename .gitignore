@@ -1,0 +1,20 @@
+# Dependencias (node)
+node_modules/
+
+# Variables de entorno
+.env
+
+# Salidas de compilación de TypeScript
+dist/
+build/
+*.tsbuildinfo
+
+# Archivos de lock de pnpm/yarn (por si cambias de gestor)
+pnpm-lock.yaml
+yarn.lock
+
+# Archivos de logs y temporales
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db

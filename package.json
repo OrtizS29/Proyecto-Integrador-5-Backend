@@ -2,10 +2,12 @@
   "type": "module",
   "dependencies": {
     "dotenv": "^16.4.7",
+    "express": "^5.1.0",
     "firebase-admin": "^13.2.0",
     "pg": "^8.14.1"
   },
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.14.0",
     "@types/pg": "^8.11.11",
     "ts-node": "^10.9.2",

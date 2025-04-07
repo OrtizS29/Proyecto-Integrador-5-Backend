@@ -10,7 +10,7 @@ import admin from "./firebase.ts";
  * @returns 
  */
 export const crearUsuario = (email: string, password: string) => {
-  admin.auth().createUser({ email, password });
+  return admin.auth().createUser({ email, password });
 }
 /**
  * Funcion que optiene el usuario por su correo registrado
@@ -18,7 +18,7 @@ export const crearUsuario = (email: string, password: string) => {
  * @returns 
  */
 export const obtenerUsuarioPorEmail = (email: string) => {
-  admin.auth().getUserByEmail(email);
+  return admin.auth().getUserByEmail(email);
 }
 /**
  * Funcion que actualiza los datos de un usuario de FireBase
@@ -27,7 +27,7 @@ export const obtenerUsuarioPorEmail = (email: string) => {
  * @returns 
  */
 export const actualizarUsuario = (uid: string, datos: any) => {
-  admin.auth().updateUser(uid, datos);
+  return admin.auth().updateUser(uid, datos);
 }
 /**
  * Funcion que elimina el usuario de FireBase
@@ -35,7 +35,7 @@ export const actualizarUsuario = (uid: string, datos: any) => {
  * @returns 
  */
 export const eliminarUsuario = (uid: string) => {
-  admin.auth().deleteUser(uid);
+  return admin.auth().deleteUser(uid);
 }
 
 /**

@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 /*
- * MiDdleware para permitir solicitudes desde Angular
+ * MiDdleware para permitir solicitudes HTTP desde Angular
  */
 app.use(cors({
     origin: 'http://localhost:4300',

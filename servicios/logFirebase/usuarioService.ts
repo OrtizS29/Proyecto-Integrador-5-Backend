@@ -1,7 +1,7 @@
 /*
  * Importa la instala de admin para trabajar con FiresBase Admin SDK
  */
-import admin from "./firebase";
+import admin from "./firebase.ts";
 
 /**
  * Funcion que crea un usuario en fire base Autehntication

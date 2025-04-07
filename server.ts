@@ -4,7 +4,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import usuarioRoutes from "./routes/usuarioRoutes";
+import usuarioRoutes from "./Routes/usuarioRoutes.ts";
 
 dotenv.config();
 

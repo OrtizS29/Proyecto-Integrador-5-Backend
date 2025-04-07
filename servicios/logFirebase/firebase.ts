@@ -1,7 +1,8 @@
 /*
  * Importa el SDK de firebase Admin
  */
-import * as admin from "firebase-admin";
+import admin from "firebase-admin";
+import { getApps } from "firebase-admin/app";
 /*
  * Importa el paquete dotenv
  */
@@ -13,7 +14,7 @@ dotenv.config();
 /*
  * Verifica si ya se inicializo Firebase y revisa el id, el email y la llave private
  */
-if(!admin.apps.length){
+if(!getApps().length){
     admin.initializeApp({
         credential:admin.credential.cert({
             projectId: process.env.FIREBASE_PROJECT_ID,

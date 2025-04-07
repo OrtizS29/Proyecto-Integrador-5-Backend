@@ -5,8 +5,10 @@ import { Router } from "express";
 /*
  * Importacion del archivo registrar
  */
-import { buscarUsuario, registrarUsuario } from "../controlador/usuario/usuarioController";
-import { actualizarUsuario, eliminarUsuario } from "../servicios/logFirebase/usuarioService";
+import { buscarUsuario, 
+    registrarUsuario, 
+    eliminarUsuario, 
+    actualizarUsuario } from "../controlador/usuario/usuarioController.ts";
 /*
  * Instancia de Router para definir tus rutas relacionadas con usuarios
  */

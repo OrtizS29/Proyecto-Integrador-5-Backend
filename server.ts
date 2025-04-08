@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
  * MiDdleware para permitir solicitudes HTTP desde Angular
  */
 app.use(cors({
-    origin: 'http://localhost:4300',
+    origin: 'http://localhost:4200',
     credentials: true
   }));
 /*

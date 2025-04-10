@@ -1,2 +1,11 @@
 # Ignorar node_modules (obligatorio)
 node_modules/
+
+# Prisma: bases de datos locales y generados
+prisma/dev.db
+prisma/dev.db-journal
+generated/
+
+# Archivos generados automáticamente por Prisma
+*.db
+*.sqlite

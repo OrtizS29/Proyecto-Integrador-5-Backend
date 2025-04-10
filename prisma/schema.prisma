@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Brigada {
+  id         Int          @id @default(autoincrement())
+  Nombre     String?
+  Municipio  String?
+  Brigadista Brigadista[]
+  Novedad    Novedad[]
+}
+
+model Brigadista {
+  Numero_Documento               Int                   @id @default(autoincrement())
+  Nombre                         String?
+  Apellido                       String?
+  Tipo_Documento                 String?
+  Pais_Expedicion_Documento      String?
+  Municipio_Expedicion_Documento String?
+  Fecha_Expedicion_Documento     DateTime?             @db.Date
+  Pais_Nacimiento                String?
+  Fecha_Nacimiento               DateTime?             @db.Date
+  Grupo_Sanguineo                String?
+  Rh                             String?
+  Sexo                           String?
+  Estado_Civil                   String?
+  Telefono_Movil                 String?
+  Correo_Electronico             String?
+  Talla_Zapato                   String?
+  Peso                           String?
+  Altura                         String?
+  Ciudad_Recidencia              String?
+  Direccion                      String?
+  Profesion                      String?
+  Disponibilidad                 String?
+  Estado                         String?
+  Id_Brigada                     Int?
+  Brigada                        Brigada?              @relation(fields: [Id_Brigada], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Id_Brigada")
+  Contacto_Emergencia            Contacto_Emergencia[]
+  Titulos                        Titulos[]
+}
+
+model Contacto_Emergencia {
+  id                 Int         @id @default(autoincrement())
+  Nombre_Completo    String?
+  Parentesco         String?
+  Telefono_Movil     String?
+  Correo_Electronico String?
+  Doc_Brigadista     Int?
+  Brigadista         Brigadista? @relation(fields: [Doc_Brigadista], references: [Numero_Documento], onDelete: NoAction, onUpdate: NoAction, map: "Doc_Brigadista")
+}
+
+model Novedad {
+  id             Int      @id @default(autoincrement())
+  Actividad      String?
+  Desc_Actividad String?
+  Id_Brigada     Int?
+  Brigada        Brigada? @relation(fields: [Id_Brigada], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Id_Brigada")
+}
+
+model Titulos {
+  id                Int         @id @default(autoincrement())
+  Titulo            String?
+  Nivel_Escolaridad String?
+  Doc_Brigadista    Int?
+  Brigadista        Brigadista? @relation(fields: [Doc_Brigadista], references: [Numero_Documento], onDelete: NoAction, onUpdate: NoAction, map: "Doc_Brigadista")
+}

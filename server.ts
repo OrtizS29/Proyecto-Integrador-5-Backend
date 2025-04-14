@@ -4,7 +4,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-// import usuarioRoutes from "./Routes/usuarioRoutes.ts";
+import brigadaRoutes from "./Routes/brigadaRoutes";
 
 dotenv.config();
 
@@ -21,10 +21,12 @@ app.use(cors({
  *  Middleware para parsear JSON 
  */
 app.use(express.json());
+
 /*
- * Punt base para las rutas API REST
+ * Aquí se montan las rutas reales
  */
-// app.use("/api", usuarioRoutes);
+app.use("/api/brigadas", brigadaRoutes);
+
 /*
  * Escribe un texto plano
  */

@@ -4,7 +4,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import usuarioRoutes from "./Routes/usuarioRoutes.ts";
+// import usuarioRoutes from "./Routes/usuarioRoutes.ts";
 
 dotenv.config();
 
@@ -24,7 +24,7 @@ app.use(express.json());
 /*
  * Punt base para las rutas API REST
  */
-app.use("/api", usuarioRoutes);
+// app.use("/api", usuarioRoutes);
 /*
  * Escribe un texto plano
  */

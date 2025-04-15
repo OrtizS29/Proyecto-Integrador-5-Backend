@@ -13,7 +13,7 @@ const router = Router();
 router.get("/", obtenerBrigadistasController);
 
 // Obtener un brigadista por su número de documento (ID)
-//router.get("/:id", obtenerBrigadistaPorIdController);
+router.get("/:id", obtenerBrigadistaPorIdController);
 
 // Crear un nuevo brigadista
 router.post("/", crearBrigadistaController);

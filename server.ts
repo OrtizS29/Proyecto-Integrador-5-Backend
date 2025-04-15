@@ -30,6 +30,23 @@ app.use(express.json());
  */
 app.use("/api/brigadas", brigadaRoutes);
 
+
+/*
+ * Aquí se montan las rutas reales de Brigadistas
+ */
+app.use("/api/brigadistas", brigadistaRoutes);
+
+
+/*
+ * Aquí se montan las rutas reales Contacto Emergencia
+ */
+app.use("/api/contactEmer", contactEmerRoutes);
+
+/*
+ * Aquí se montan las rutas reales Novedad
+ */
+app.use("/api/novedades", novedadRoutes);
+
 /*
  * Escribe un texto plano
  */

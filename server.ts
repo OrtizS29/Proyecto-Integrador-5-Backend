@@ -5,7 +5,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import brigadaRoutes from "./Routes/brigadaRoutes.ts";
-import brigadistaRoutes from "./Routes/brigadista.routes";
+import brigadistaRoutes from "./Routes/brigadistaRoutes.ts";
 
 dotenv.config();
 

@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import * as brigadistaService from "../servicios/brigadaService.ts";
+import * as brigadistaService from "../servicios/BrigadistaService.ts";
 
 /**
  * Función que obtiene todos los brigadistas
  */
 export const obtenerBrigadistasController = async (req: Request, res: Response) => {
     try {
-        const brigadistas = await brigadistaService.obtenerBrigadas();
+        const brigadistas = await brigadistaService.obtenerBrigadistas();
         res.json(brigadistas);
     } catch (error) {
         console.error("Error al obtener brigadistas:", error);
@@ -20,7 +20,7 @@ export const obtenerBrigadistasController = async (req: Request, res: Response) 
 export const obtenerBrigadistaPorIdController = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
-        const brigadista = await brigadistaService.obtenerBrigadaPorId(Number(id));
+        const brigadista = await brigadistaService.obtenerBrigadistaPorId(Number(id));
         if (!brigadista) {
             return res.status(404).json({ error: "Brigadista no encontrado" });
         }
@@ -36,7 +36,7 @@ export const obtenerBrigadistaPorIdController = async (req: Request, res: Respon
  */
 export const crearBrigadistaController = async (req: Request, res: Response) => {
     try {
-        const brigadistaCreado = await brigadistaService.crearBrigada(req.body);
+        const brigadistaCreado = await brigadistaService.crearBrigadista(req.body);
         res.status(201).json(brigadistaCreado);
     } catch (error: any) {
         console.error("Error al crear brigadista:", error);
@@ -50,7 +50,7 @@ export const crearBrigadistaController = async (req: Request, res: Response) => 
 export const actualizarBrigadistaController = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
-        const brigadistaActualizado = await brigadistaService.actualizarBrigada(Number(id), req.body);
+        const brigadistaActualizado = await brigadistaService.actualizarBrigadista(Number(id), req.body);
         res.json(brigadistaActualizado);
     } catch (error: any) {
         console.error("Error al actualizar brigadista:", error);
@@ -64,7 +64,7 @@ export const actualizarBrigadistaController = async (req: Request, res: Response
 export const eliminarBrigadistaController = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
-        await brigadistaService.eliminarBrigada(Number(id));
+        await brigadistaService.eliminarBrigadista(Number(id));
         res.json({ mensaje: "Brigadista eliminado correctamente" });
     } catch (error: any) {
         console.error("Error al eliminar brigadista:", error);

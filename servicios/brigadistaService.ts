@@ -7,7 +7,7 @@ import { Prisma } from "@prisma/client";
  */
 export async function obtenerBrigadistas() {
     return prisma.brigadista.findMany({
-        include: {
+    include: {
             Brigada: true,
             Contacto_Emergencia: true,
             Titulos: true,

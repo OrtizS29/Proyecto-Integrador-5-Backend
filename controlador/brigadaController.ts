@@ -75,9 +75,9 @@ export const obtenerBrigadaPorIdController  = async (req:Request, res: Response)
         const brigada = await brigadaService.obtenerBrigadaPorId(Number(id))
         if (brigada) {
             res.json(brigada);
-          } else {
+        } else {
             res.status(404).json({ message: "Brigada no encontrada" });
-          }
+        }
     } catch (error) {
         res.status(500);
     }

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as brigadistaService from "../servicios/brigadistaService.ts";
+import * as brigadistaService from "../servicios/BrigadistaService.ts";
 
 /**
  * Función que obtiene todos los brigadistas

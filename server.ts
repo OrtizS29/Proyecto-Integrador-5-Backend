@@ -8,6 +8,7 @@ import brigadaRoutes from "./Routes/brigadaRoutes.ts";
 import contactEmerRoutes from "./Routes/contactEmerRoutes.ts";
 import novedadRoutes from "./Routes/novedadRoutes.ts";
 import brigadistaRoutes from "./Routes/brigadistaRoutes.ts";
+import tituloRoutes from "./Routes/tituloRoutes.ts";
 
 dotenv.config();
 
@@ -46,6 +47,12 @@ app.use("/api/contactEmer", contactEmerRoutes);
  * Aquí se montan las rutas reales Novedad
  */
 app.use("/api/novedades", novedadRoutes);
+
+
+/*
+ * Aquí se montan las rutas reales Titulos
+ */
+app.use("/api/titulos", tituloRoutes);
 
 /*
  * Escribe un texto plano

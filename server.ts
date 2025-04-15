@@ -5,6 +5,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import brigadaRoutes from "./Routes/brigadaRoutes.ts";
+import contactEmerRoutes from "./Routes/contactEmerRoutes.ts";
+import novedadRoutes from "./Routes/novedadRoutes.ts";
 import brigadistaRoutes from "./Routes/brigadistaRoutes.ts";
 
 dotenv.config();
@@ -24,10 +26,9 @@ app.use(cors({
 app.use(express.json());
 
 /*
- * Aquí se montan las rutas reales
+ * Aquí se montan las rutas reales Brigada
  */
 app.use("/api/brigadas", brigadaRoutes);
-app.use("/api/brigadistas", brigadistaRoutes);
 
 /*
  * Escribe un texto plano

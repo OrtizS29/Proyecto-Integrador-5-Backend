@@ -32,7 +32,7 @@ export const crearBrigadasController = async (req:Request, res: Response) => {
 }
 
 /**
- * Funcion para crear una brigada, se pasa un id y los datos a cambiar.
+ * Funcion para actualizar una brigada, se pasa un id y los datos a cambiar.
  * @param req 
  * @param res 
  */
@@ -50,7 +50,7 @@ export const actualizarBrigadasController = async (req:Request, res: Response) =
 }
 
 /**
- * 
+ * Funcion para eliminar una brigada, se pasa un id.
  * @param req 
  * @param res 
  */

@@ -6,8 +6,8 @@ import { Prisma } from "@prisma/client";
  * Función que obtiene todas las brigadas.
  * @returns lista brigadas
  */
-export async function obtenerBrigadas() {
-    return prisma.brigada.findMany();  
+export async function obtenerNovedades() {
+    return prisma.novedad.findMany();  
 }
 
 /**
@@ -16,8 +16,8 @@ export async function obtenerBrigadas() {
  * @param data 
  * @returns 
  */
-export async function crearBrigada(data: Prisma.BrigadaCreateInput) {
-    return prisma.brigada.create({ data });
+export async function crearNovedad(data: Prisma.NovedadCreateInput) {
+    return prisma.novedad.create({ data });
 }
 
 /**
@@ -25,8 +25,8 @@ export async function crearBrigada(data: Prisma.BrigadaCreateInput) {
  * @param id 
  * @returns 
  */
-export async function obtenerBrigadaPorId(id: number) {
-    return prisma.brigada.findUnique({ where: { id } });
+export async function obtenerNovedadPorId(id: number) {
+    return prisma.novedad.findUnique({ where: { id } });
 }
 
 /**
@@ -35,8 +35,8 @@ export async function obtenerBrigadaPorId(id: number) {
  * @param data indica que se pueden actualizar algunos datos de la brigada no todos
  * @returns 
  */
-export async function actualizarBrigada(id: number, data: Prisma.BrigadaUpdateInput) {
-    return prisma.brigada.update({ where: { id }, data });
+export async function actualizarNovedad(id: number, data: Prisma.NovedadUpdateInput) {
+    return prisma.novedad.update({ where: { id }, data });
 }
 
 /**
@@ -44,6 +44,6 @@ export async function actualizarBrigada(id: number, data: Prisma.BrigadaUpdateIn
  * @param id 
  * @returns 
  */
-export async function eliminarBrigada(id: number) {
-    return prisma.brigada.delete({ where: { id } });
+export async function eliminarNovedad(id: number) {
+    return prisma.novedad.delete({ where: { id } });
 }

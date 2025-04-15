@@ -12,7 +12,7 @@ export async function obtenerBrigadas() {
 
 /**
  * Funcion que crea una nueva brigada, que espera un objeto brigada con los campos del modelo,
- * excepto el id porque es un incremental esto hace el omit
+ * excepto el id porque es un incremental esto hace el CreateInput
  * @param data 
  * @returns 
  */

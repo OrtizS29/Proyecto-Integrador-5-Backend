@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as brigadistaService from "../servicios/BrigadistaService.ts";
+import * as brigadistaService from "../servicios/brigadistaService.ts";
 
 /**
  * Función que obtiene todos los brigadistas
@@ -21,11 +21,12 @@ export const obtenerBrigadistaPorIdController = async (req: Request, res: Respon
     const { id } = req.params;
     try {
         const brigadista = await brigadistaService.obtenerBrigadistaPorId(Number(id));
-        if (!brigadista) {
-            return res.status(404).json({ error: "Brigadista no encontrado" });
+        if (brigadista) {
+            res.status(200).json(brigadista);
+        }else{
+            res.status(404).json({ message: "Brigada no encontrada" });
         }
-        res.json(brigadista);
-    } catch (error) {
+    } catch (error:any) {
         console.error("Error al buscar brigadista:", error);
         res.status(500).json({ error: "Error del servidor" });
     }

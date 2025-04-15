@@ -1,4 +1,6 @@
-import prisma from "./prisma";
+
+import prisma from "./prisma.ts";
+import { Prisma } from "@prisma/client";
 
 /**
  * Función que obtiene todas las brigadas.
@@ -14,7 +16,7 @@ export async function obtenerBrigadas() {
  * @param data 
  * @returns 
  */
-export async function crearBrigada(data: Omit<typeof prisma.brigada, 'id'>) {
+export async function crearBrigada(data: Prisma.BrigadaCreateInput) {
     return prisma.brigada.create({ data });
 }
 
@@ -33,7 +35,7 @@ export async function obtenerBrigadaPorId(id: number) {
  * @param data indica que se pueden actualizar algunos datos de la brigada no todos
  * @returns 
  */
-export async function actualizarBrigada(id: number, data: Partial<typeof prisma.brigada>) {
+export async function actualizarBrigada(id: number, data: Prisma.BrigadaUpdateInput) {
     return prisma.brigada.update({ where: { id }, data });
 }
 

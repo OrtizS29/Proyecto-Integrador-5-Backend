@@ -6,7 +6,7 @@ import {
     actualizarBrigadasController,
     eliminarBrigadasController,
     obtenerBrigadaPorIdController,
-} from "../controlador/brigadaController";
+} from "../controlador/brigadaController.ts";
 
 const router = Router();
 

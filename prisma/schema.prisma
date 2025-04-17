@@ -17,7 +17,7 @@ model Brigada {
 }
 
 model Brigadista {
-  Numero_Documento               Int                   @id @default(autoincrement())
+  Numero_Documento               Int                   @id
   Nombre                         String
   Apellido                       String
   Tipo_Documento                 String
@@ -53,7 +53,7 @@ model Contacto_Emergencia {
   Telefono_Movil     String
   Correo_Electronico String
   Doc_Brigadista     Int
-  Brigadista         Brigadista @relation(fields: [Doc_Brigadista], references: [Numero_Documento], onDelete: NoAction, onUpdate: NoAction, map: "Doc_Brigadista")
+  Brigadista         Brigadista @relation(fields: [Doc_Brigadista], references: [Numero_Documento], onDelete: Cascade, onUpdate: NoAction, map: "Doc_Brigadista")
 }
 
 model Novedad {
@@ -69,5 +69,5 @@ model Titulos {
   Titulo            String
   Nivel_Escolaridad String
   Doc_Brigadista    Int
-  Brigadista        Brigadista @relation(fields: [Doc_Brigadista], references: [Numero_Documento], onDelete: NoAction, onUpdate: NoAction, map: "Doc_Brigadista")
+  Brigadista        Brigadista @relation(fields: [Doc_Brigadista], references: [Numero_Documento], onDelete: Cascade, onUpdate: NoAction, map: "Doc_Brigadista")
 }

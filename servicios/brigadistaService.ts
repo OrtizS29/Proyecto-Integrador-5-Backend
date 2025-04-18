@@ -30,14 +30,7 @@ export async function crearBrigadista(data: Prisma.BrigadistaCreateInput) {
  * @returns Brigadista encontrado
  */
 export async function obtenerBrigadistaPorId(Numero_Documento: number) {
-    return prisma.brigadista.findUnique({
-        where: { Numero_Documento },
-        include: {
-            Brigada: true,
-            Contacto_Emergencia: true,
-            Titulos: true,
-        },
-    });
+    return prisma.brigadista.findUnique({ where: { Numero_Documento } });
 }
 
 /**
@@ -50,9 +43,11 @@ export async function actualizarBrigadista(
     Numero_Documento: number,
     data: Prisma.BrigadistaUpdateInput
 ) {
+    const { Brigada,  Contacto_Emergencia, Titulos, ...dataSinIdRelacion } = data;
+
     return prisma.brigadista.update({
         where: { Numero_Documento },
-        data,
+        data: dataSinIdRelacion,
     });
 }
 

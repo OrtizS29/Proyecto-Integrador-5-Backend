@@ -19,6 +19,9 @@ export const importarDesdeExcelController = async (
     res.status(200).json({ message: "Importación completada." });
   } catch (error) {
     console.error("Error al importar desde Excel:", error);
-    res.status(500).json({ error: "Error al procesar el archivo." });
+    res.status(500).json({
+      error: "Error al procesar el archivo.",
+      detalle: error instanceof Error ? error.message : error,
+    });
   }
 };

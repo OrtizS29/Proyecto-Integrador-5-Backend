@@ -41,6 +41,7 @@ model Brigadista {
   Disponibilidad                 String
   Estado                         String
   Id_Brigada                     Int?
+  Cargo                          String?
   Brigada                        Brigada?              @relation(fields: [Id_Brigada], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Id_Brigada")
   Contacto_Emergencia            Contacto_Emergencia[]
   Titulos                        Titulos[]

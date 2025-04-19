@@ -83,3 +83,17 @@ export const obtenerContactEmerControllerPorId = async (req:Request, res:Respons
         res.status(500);  
     }
 }
+export const obtenerContactosPorDocumentoController = async (req: Request, res: Response) => {
+    const { documento } = req.params;
+    try {
+        const contactos = await contactEmerService.obtenerContactEmerPorDocumento(Number(documento));
+        if (contactos.length > 0) {
+            res.status(200).json(contactos);
+        } else {
+            res.status(404).json({ mensaje: "No se encontraron contactos de emergencia para este brigadista" });
+        }
+    } catch (error: any) {
+        console.error("Error al obtener contactos por documento:", error);
+        res.status(500).json({ error: error.message || "Error del servidor" });
+    }
+};

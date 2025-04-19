@@ -55,3 +55,11 @@ export async function eliminarTitulo(id: number) {
         where: { id },
     });
 }
+
+export async function obtenerTitulosPorDocumento(doc: number) {
+    return prisma.titulos.findMany({
+        where: {
+            Doc_Brigadista: doc,
+        },
+    });
+}

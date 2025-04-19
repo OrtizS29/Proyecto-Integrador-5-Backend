@@ -72,3 +72,18 @@ export const eliminarTituloController = async (req: Request, res: Response) => {
         res.status(500).json({ error: error.message || "Error del servidor" });
     }
 };
+
+export const obtenerTitulosPorDocumentoController = async (req: Request, res: Response) => {
+    const { documento } = req.params;
+    try {
+        const titulos = await titulosService.obtenerTitulosPorDocumento(Number(documento));
+        if (titulos.length > 0) {
+            res.status(200).json(titulos);
+        } else {
+            res.status(404).json({ mensaje: "No se encontraron títulos para este brigadista" });
+        }
+    } catch (error:any) {
+        console.error("Error al obtener títulos por documento:", error);
+        res.status(500).json({ error: error.message || "Error del servidor" });
+    }
+}

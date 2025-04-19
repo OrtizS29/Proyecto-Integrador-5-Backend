@@ -1,5 +1,6 @@
 
-import * as XLSX from 'xlsx';
+import XLSX from 'xlsx';
+
 import { BrigadistaExcel, TituloExcel, ContactoExcel } from '../tipos/excelTypes.ts'; 
 
 export const parseExcel = (filePath: string) => {

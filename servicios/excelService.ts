@@ -8,7 +8,7 @@ export const parseExcel = (filePath: string) => {
   
     const brigadistasSheet: BrigadistaExcel[] = XLSX.utils.sheet_to_json(workbook.Sheets['Brigadistas']);
     const titulosSheet: TituloExcel[] = XLSX.utils.sheet_to_json(workbook.Sheets['Titulos']);
-    const contactosSheet: ContactoExcel[] = XLSX.utils.sheet_to_json(workbook.Sheets['Contactos']);
+    const contactosSheet: ContactoExcel[] = XLSX.utils.sheet_to_json(workbook.Sheets['Contacto_Emergencia']);
   
   
     return { brigadistasSheet, titulosSheet, contactosSheet };

@@ -5,7 +5,8 @@ import{
     crearContactEmerController,
     actualizarContactEmerController,
     eliminarContactEmerController,
-    obtenerContactEmerControllerPorId
+    obtenerContactEmerControllerPorId,
+    obtenerContactosPorDocumentoController
 } from "../controlador/contactEmerController.ts";
 
 const router = Router();
@@ -19,5 +20,7 @@ router.post("/",crearContactEmerController);
 router.put("/:id",actualizarContactEmerController);
 
 router.delete("/:id",eliminarContactEmerController);
+
+router.get("/brigadista/:documento", obtenerContactosPorDocumentoController);
 
 export default router;

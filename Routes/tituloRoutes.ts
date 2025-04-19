@@ -5,6 +5,7 @@ import {
     crearTituloController,
     actualizarTituloController,
     eliminarTituloController,
+    obtenerTitulosPorDocumentoController
 } from "../controlador/tituloController.ts";
 
 const router = Router();
@@ -23,5 +24,7 @@ router.put("/:id", actualizarTituloController);
 
 // Eliminar un título
 router.delete("/:id", eliminarTituloController);
+
+router.get("/brigadista/:documento", obtenerTitulosPorDocumentoController)
 
 export default router;

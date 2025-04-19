@@ -47,3 +47,14 @@ export async function obtenerContactEmerPorId(id:number) {
 export async function eliminarContactEmer(id: number) {
     return prisma.contacto_Emergencia.delete({where: {id} });
 }
+/**
+ * Obtener contactos de emergencia por documento del brigadista
+ * @param doc Documento del brigadista
+ */
+export async function obtenerContactEmerPorDocumento(doc: number) {
+    return prisma.contacto_Emergencia.findMany({
+        where: {
+            Doc_Brigadista: doc,
+        },
+    });
+}

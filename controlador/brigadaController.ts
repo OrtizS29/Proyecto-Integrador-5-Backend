@@ -59,8 +59,9 @@ export const eliminarBrigadasController = async (req:Request, res: Response) => 
     try {
         const brigadaEliminada = await brigadaService.eliminarBrigada(Number(id))
         res.status(200).json(brigadaEliminada);
-    } catch (error) {
-        res.status(500);
+    } catch (error: any) {
+        console.error("Error al eliminar brigada:", error);
+        res.status(500).json({ error: error.message || "Error del servidor" });
     }
 }
 

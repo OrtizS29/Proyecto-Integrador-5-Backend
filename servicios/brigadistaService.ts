@@ -61,3 +61,11 @@ export async function eliminarBrigadista(Numero_Documento: number) {
         where: { Numero_Documento },
     });
 }
+
+export async function obtenerBrigadasPorIdB(id: number) {
+    return prisma.brigadista.findMany({
+        where: {
+            Id_Brigada: id,
+        },
+    });
+}

@@ -72,3 +72,18 @@ export const eliminarBrigadistaController = async (req: Request, res: Response) 
         res.status(500).json({ error: error.message || "Error del servidor" });
     }
 };
+
+export const obtenerBrigadistasPorIdBController = async (req: Request, res: Response) => {
+    const { id } =req.params;
+    try {
+        const brigadistas = await brigadistaService.obtenerBrigadasPorIdB(Number(id));
+        if (brigadistas.length > 0) {
+            res.status(200).json(brigadistas);
+        } else {
+            res.status(404).json({ mensaje: "No se encontraron brigadistas para esta brigada" });
+        }
+    } catch (error:any) {
+        console.error("Error al obtener brigadistas por documento:", error);
+        res.status(500).json({ error: error.message || "Error del servidor" });
+    }
+}

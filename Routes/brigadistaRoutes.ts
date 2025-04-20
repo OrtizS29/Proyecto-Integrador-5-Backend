@@ -5,7 +5,8 @@ import {
     crearBrigadistaController,
     actualizarBrigadistaController,
     eliminarBrigadistaController,
-    obtenerBrigadistasPorIdBController
+    obtenerBrigadistasPorIdBController,
+    asignarBrigada
 } from "../controlador/brigadistaController.ts";
 
 const router = Router();
@@ -26,5 +27,7 @@ router.put("/:id", actualizarBrigadistaController);
 router.delete("/:id", eliminarBrigadistaController);
 
 router.get("/brigada/:id", obtenerBrigadistasPorIdBController);
+
+router.put("/asignar/:id", asignarBrigada);
 
 export default router;

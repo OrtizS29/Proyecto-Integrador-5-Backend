@@ -87,3 +87,18 @@ export const obtenerBrigadistasPorIdBController = async (req: Request, res: Resp
         res.status(500).json({ error: error.message || "Error del servidor" });
     }
 }
+
+export const asignarBrigada = async (req: Request, res: Response) => {
+    const {Numero_Documento,Cargo} = req.body;
+    const { id } = req.params;
+    try {
+        const brigadistaActualizado = await brigadistaService.asignarBrigada(
+            Numero_Documento,
+            Number(id),
+            Cargo
+        );
+        res.status(200).json(brigadistaActualizado);
+    } catch (error) {
+        res.status(500).json({ error: "Error al asignar brigadista a brigada", detalle: error });
+    }
+}

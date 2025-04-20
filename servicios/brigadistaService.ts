@@ -76,3 +76,35 @@ export async function obtenerBrigadasPorIdB(id: number) {
         },
     });
 }
+
+export const asignarBrigada = async (
+    Numero_Documento: number,
+    Id_Brigada: number,
+    Cargo: string
+) => {
+    const brigadista = await prisma.brigadista.findUnique({
+        where: {Numero_Documento: Numero_Documento},
+    });
+
+    const brigada = await prisma.brigada.findUnique({
+        where: { id: Id_Brigada},
+    });
+
+    if (!brigadista) {
+        throw new Error("Brigadista no encontrado");
+    }else if (!brigada) {
+        throw new Error("Brigada no encontrada");
+    }
+
+    const actualizado = await prisma.brigadista.update({
+        where: {
+            Numero_Documento: Numero_Documento,
+        },
+        data: {
+            Id_Brigada: Id_Brigada,
+            Cargo: Cargo,
+        },
+    });
+
+    return actualizado;
+};

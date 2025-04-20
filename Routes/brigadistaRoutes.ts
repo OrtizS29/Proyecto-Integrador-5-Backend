@@ -28,6 +28,6 @@ router.delete("/:id", eliminarBrigadistaController);
 
 router.get("/brigada/:id", obtenerBrigadistasPorIdBController);
 
-router.put("/asignar/:id", asignarBrigada);
+router.put("/asignar/:Numero_Documento", asignarBrigada);
 
 export default router;

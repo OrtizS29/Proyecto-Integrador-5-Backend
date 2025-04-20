@@ -89,12 +89,12 @@ export const obtenerBrigadistasPorIdBController = async (req: Request, res: Resp
 }
 
 export const asignarBrigada = async (req: Request, res: Response) => {
-    const {Numero_Documento,Cargo} = req.body;
-    const { id } = req.params;
+    const {Numero_Documento} = req.params ;
+    const { Id_Brigada,Cargo } = req.body;
     try {
         const brigadistaActualizado = await brigadistaService.asignarBrigada(
-            Numero_Documento,
-            Number(id),
+            Number(Numero_Documento) ,
+            Number(Id_Brigada),
             Cargo
         );
         res.status(200).json(brigadistaActualizado);

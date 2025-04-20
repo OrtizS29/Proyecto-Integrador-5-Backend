@@ -98,11 +98,11 @@ export const asignarBrigada = async (
 
     const actualizado = await prisma.brigadista.update({
         where: {
-            Numero_Documento: Numero_Documento,
+            Numero_Documento,
         },
         data: {
-            Id_Brigada: Id_Brigada,
-            Cargo: Cargo,
+            Id_Brigada,
+            Cargo,
         },
     });
 

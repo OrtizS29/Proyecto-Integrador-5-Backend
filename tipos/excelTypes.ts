@@ -24,6 +24,7 @@ export interface BrigadistaExcel {
     Disponibilidad: string;
     Estado: string;
     Id_Brigada?: number;
+    Cargo: string
 }
   
 export interface TituloExcel {

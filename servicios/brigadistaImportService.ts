@@ -42,6 +42,7 @@ export const importarBrigadistasDesdeExcel = async (filePath: string) => {
           Disponibilidad: b.Disponibilidad,
           Estado: b.Estado,
           Id_Brigada: b.Id_Brigada,
+          Cargo: b.Cargo,
   
           // Crear Contactos de Emergencia
           Contacto_Emergencia: {

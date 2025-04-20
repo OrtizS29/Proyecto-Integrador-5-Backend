@@ -38,12 +38,14 @@ export const crearBrigadasController = async (req:Request, res: Response) => {
  */
 export const actualizarBrigadasController = async (req:Request, res: Response) => {
     const { id } = req.params;
+    const { id: _, ...dataSinId} = req.body;
+
     console.log("ID recibido en controlador:", id);
     console.log("Datos recibidos en cuerpo:", req.body);
     try {
         const brigadaActualizada = await brigadaService.actualizarBrigada(
             Number(id),
-            req.body
+            dataSinId
         );
         console.log("Brigada actualizada:", brigadaActualizada);
         res.status(200).json(brigadaActualizada);

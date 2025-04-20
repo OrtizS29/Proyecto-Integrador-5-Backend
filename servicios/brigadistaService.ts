@@ -67,5 +67,12 @@ export async function obtenerBrigadasPorIdB(id: number) {
         where: {
             Id_Brigada: id,
         },
+        select: {
+            Numero_Documento: true,
+            Nombre: true,
+            Apellido: true,
+            Profesion: true,
+            Cargo: true,
+        },
     });
 }

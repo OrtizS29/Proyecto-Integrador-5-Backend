@@ -38,14 +38,21 @@ export const crearBrigadasController = async (req:Request, res: Response) => {
  */
 export const actualizarBrigadasController = async (req:Request, res: Response) => {
     const { id } = req.params;
+    console.log("ID recibido en controlador:", id);
+    console.log("Datos recibidos en cuerpo:", req.body);
     try {
         const brigadaActualizada = await brigadaService.actualizarBrigada(
             Number(id),
             req.body
         );
+        console.log("Brigada actualizada:", brigadaActualizada);
         res.status(200).json(brigadaActualizada);
     } catch (error) {
-        res.status(500);
+        console.error("Error al actualizar brigada:", error);
+        res.status(500).json({
+            error: "Error al actualizar brigada",
+            detalle: error instanceof Error ? error.message : error
+        });
     }
 }
 

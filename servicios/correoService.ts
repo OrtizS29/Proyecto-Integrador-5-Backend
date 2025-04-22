@@ -1,5 +1,8 @@
 import axios from 'axios';
 import prisma from './prisma.ts';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const EMAILJS_API_URL = process.env.EMAILJS_API_URL!;
 const EMAILJS_SERVICE_ID = process.env.EMAILJS_SERVICE_ID!;

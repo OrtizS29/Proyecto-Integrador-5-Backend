@@ -1,9 +1,9 @@
 
-import { Router } from "express";
-import { notificarBrigada } from "../controlador/correoController.ts";
+// import { Router } from "express";
+// import { notificarBrigada } from "../controlador/correoController.ts";
 
-const router = Router();
+// const router = Router();
 
-router.post("/:id", notificarBrigada);
+// router.post("/:id", notificarBrigada);
 
-export default router;
+// export default router;

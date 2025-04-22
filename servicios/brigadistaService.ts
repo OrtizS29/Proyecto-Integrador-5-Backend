@@ -73,6 +73,7 @@ export async function obtenerBrigadasPorIdB(id: number) {
             Apellido: true,
             Profesion: true,
             Cargo: true,
+            Correo_Electronico: true,
         },
     });
 }

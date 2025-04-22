@@ -10,7 +10,7 @@ import novedadRoutes from "./Routes/novedadRoutes.ts";
 import brigadistaRoutes from "./Routes/brigadistaRoutes.ts";
 import tituloRoutes from "./Routes/tituloRoutes.ts";
 import excelRoutes from "./Routes/excelRoutes.ts";
-import correoRoutes from "./Routes/correoRoutes.ts";
+// import correoRoutes from "./Routes/correoRoutes.ts";
 
 dotenv.config();
 
@@ -61,7 +61,7 @@ app.use("/api/importar",excelRoutes);
 /*
  * Aquí se montan las rutas enviar los corrreos
  */
-app.use("/api/correo",correoRoutes);
+// app.use("/api/correo",correoRoutes);
 
 /*
  * Escribe un texto plano

@@ -20,13 +20,21 @@ const PORT = process.env.PORT || 3000;
  * MiDdleware para permitir solicitudes HTTP desde Angular
  */
 app.use(cors({
-  origin: [
-    'http://localhost:4200',
-    'https://proyecto-integrador-5-frontend.vercel.app',
-    'https://proyecto-integrador-5-frontend-l1d6-qnoamku5g.vercel.app'
-  ],
-    credentials: true
-  }));
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:4200',
+      'https://proyecto-integrador-5-frontend.vercel.app'
+    ];
+
+    if(!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")){
+      callback(null,true)
+    }else{
+      callback(new Error("Cors no permite"))
+    }
+  },
+  credentials: true
+}));
+
 /*
  *  Middleware para parsear JSON 
  */

@@ -10,12 +10,19 @@ import novedadRoutes from "./Routes/novedadRoutes.ts";
 import brigadistaRoutes from "./Routes/brigadistaRoutes.ts";
 import tituloRoutes from "./Routes/tituloRoutes.ts";
 import excelRoutes from "./Routes/excelRoutes.ts";
+import compression from "compression";
 // import correoRoutes from "./Routes/correoRoutes.ts";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+/*
+ * Comprime las peticiones HTTPS para que sean mas rapidas
+ */
+app.use(compression());
+
 /*
  * MiDdleware para permitir solicitudes HTTP desde Angular
  */

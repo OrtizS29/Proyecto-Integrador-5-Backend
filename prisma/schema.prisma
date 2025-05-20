@@ -12,6 +12,7 @@ model Brigada {
   Nombre       String
   Municipio    String
   Fecha_Inicio DateTime     @db.Date
+  Presupuesto  String
   Brigadista   Brigadista[]
   Novedad      Novedad[]
 }

@@ -8,13 +8,16 @@ datasource db {
 }
 
 model Brigada {
-  id           Int          @id @default(autoincrement())
-  Nombre       String
-  Municipio    String
-  Fecha_Inicio DateTime     @db.Date
-  Presupuesto  String
-  Brigadista   Brigadista[]
-  Novedad      Novedad[]
+  id              Int          @id @default(autoincrement())
+  Nombre          String
+  Fecha_Inicio    DateTime     @db.Date
+  Presupuesto     String
+  ID_Municipio    Int
+  ID_Conglomerado Int
+  Conglomerado    Conglomerado @relation(fields: [ID_Conglomerado], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ID_Conglomerado")
+  Municipio       Municipio    @relation(fields: [ID_Municipio], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ID_Municipio")
+  Brigadista      Brigadista[]
+  Novedad         Novedad[]
 }
 
 model Brigadista {
@@ -72,4 +75,16 @@ model Titulos {
   Nivel_Escolaridad String
   Doc_Brigadista    Int
   Brigadista        Brigadista @relation(fields: [Doc_Brigadista], references: [Numero_Documento], onDelete: Cascade, onUpdate: NoAction, map: "Doc_Brigadista")
+}
+
+model Conglomerado {
+  id      Int       @id @default(autoincrement())
+  Nombre  String
+  Brigada Brigada[]
+}
+
+model Municipio {
+  id      Int       @id @default(autoincrement())
+  Nombre  String
+  Brigada Brigada[]
 }

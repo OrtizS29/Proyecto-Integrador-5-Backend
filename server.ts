@@ -10,7 +10,8 @@ import novedadRoutes from "./Routes/novedadRoutes.ts";
 import brigadistaRoutes from "./Routes/brigadistaRoutes.ts";
 import tituloRoutes from "./Routes/tituloRoutes.ts";
 import excelRoutes from "./Routes/excelRoutes.ts";
-// import correoRoutes from "./Routes/correoRoutes.ts";
+import municipioRoutes from "./Routes/municipioRoutes.ts";
+import conglomeradoRoutes from "./Routes/conglomeradoRoutes.ts";
 
 dotenv.config();
 
@@ -46,12 +47,10 @@ app.use(express.json());
  */
 app.use("/api/brigadas", brigadaRoutes);
 
-
 /*
  * Aquí se montan las rutas reales de Brigadistas
  */
 app.use("/api/brigadistas", brigadistaRoutes);
-
 
 /*
  * Aquí se montan las rutas reales Contacto Emergencia
@@ -67,14 +66,21 @@ app.use("/api/novedades", novedadRoutes);
  * Aquí se montan las rutas reales Titulos
  */
 app.use("/api/titulos", tituloRoutes);
+
 /*
  * Aquí se montan las rutas para subir el archivo
  */
 app.use("/api/importar",excelRoutes);
+
 /*
- * Aquí se montan las rutas enviar los corrreos
+ * Aquí se montan las rutas de municipio
  */
-// app.use("/api/correo",correoRoutes);
+app.use("/api/municipio", municipioRoutes);
+
+/*
+ * Aquí se montan las rutas de conglomerado
+ */
+app.use("/api/conglomerado", conglomeradoRoutes);
 
 /*
  * Escribe un texto plano

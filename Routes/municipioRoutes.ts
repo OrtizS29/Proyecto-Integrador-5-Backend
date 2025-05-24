@@ -9,6 +9,6 @@ const router = Router();
 
 router.get("/", obtenerMunicipiosController);
 
-router.get("id", obtenerMunicipioPorIdController);
+router.get("/:id", obtenerMunicipioPorIdController);
 
 export default router;

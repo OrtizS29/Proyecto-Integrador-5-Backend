@@ -73,16 +73,6 @@ app.use("/api/titulos", tituloRoutes);
 app.use("/api/importar",excelRoutes);
 
 /*
-<<<<<<< HEAD
- * Aquí se montan las rutas de municipio
- */
-app.use("/api/municipio", municipioRoutes);
-
-/*
- * Aquí se montan las rutas de conglomerado
- */
-app.use("/api/conglomerado", conglomeradoRoutes);
-=======
  * Aquí se montan las rutas enviar los conglomerados
  */
 app.use("/api/conglomerado",conglomeradoRoutes);
@@ -91,7 +81,6 @@ app.use("/api/conglomerado",conglomeradoRoutes);
  * Aquí se montan las rutas enviar los municipios
  */
 app.use("/api/municipio",municipioRoutes);
->>>>>>> d42a202 (Se sube para las APIS de municipio y conglomerado.)
 
 /*
  * Escribe un texto plano

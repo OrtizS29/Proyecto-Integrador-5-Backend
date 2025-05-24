@@ -9,15 +9,17 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-let serviceAccount: admin.ServiceAccount;
+let serviceAccount;
 
-if (process.env.FIREBASE_CREDENTIALS?.startsWith("{")) {
-  // 🔒 En producción (Render), la clave viene como JSON string
-  serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+if (process.env.FIREBASE_CREDENTIALS_B64) {
+  // En Render: decodificar Base64 y parsear JSON
+  const firebaseCredsJson = Buffer.from(process.env.FIREBASE_CREDENTIALS_B64, "base64").toString("utf-8");
+  serviceAccount = JSON.parse(firebaseCredsJson);
 } else {
-  // 🧪 En desarrollo, es una ruta a un archivo local
+  // En local: leer archivo JSON normalmente
   const serviceAccountPath = path.resolve(__dirname, "..", process.env.FIREBASE_CREDENTIALS!);
-  serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, "utf-8"));
+  const serviceAccountRaw = fs.readFileSync(serviceAccountPath, "utf-8");
+  serviceAccount = JSON.parse(serviceAccountRaw);
 }
 
 admin.initializeApp({

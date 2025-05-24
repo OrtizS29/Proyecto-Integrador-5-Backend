@@ -9,6 +9,6 @@ const router =Router();
 
 router.get("/", obtenerConglomeradosController);
 
-router.get("/id", obtenerConglomeradoPorIdController);
+router.get("/:id", obtenerConglomeradoPorIdController);
 
 export default router;

@@ -93,7 +93,7 @@ model Municipio {
 
 model User {
   id          Int          @id @default(autoincrement())
-  FirebaseUid String
+  FirebaseUid String       @unique
   Email       String
   Nombre      String
   createdAt   DateTime     @db.Date

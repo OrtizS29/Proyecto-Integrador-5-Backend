@@ -9,3 +9,5 @@ generated/
 # Archivos generados automáticamente por Prisma
 *.db
 *.sqlite
+
+config/

@@ -6,7 +6,7 @@ import { Prisma } from "@prisma/client";
  * Funcion que obtiene todos los municipios
  * @returns 
  */
-export async function obtenerConglomerado(){
+export async function obtenerConglomerados(){
     return prisma.conglomerado.findMany();
 }
 

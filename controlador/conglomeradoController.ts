@@ -1,7 +1,6 @@
 
-
 import { Request, Response } from "express";
-import * as conglomeradoService from "../servicios/municipioService.ts";
+import * as conglomeradoService from "../servicios/conglomeradoService.ts";
 
 /**
  * 
@@ -10,7 +9,7 @@ import * as conglomeradoService from "../servicios/municipioService.ts";
  */
 export const obtenerConglomeradosController = async (req: Request,res:Response) => {
     try {
-        const conglomerado = await conglomeradoService.obtenerMunicipios();
+        const conglomerado = await conglomeradoService.obtenerConglomerados();
         res.json(conglomerado);
     } catch (error) {
         res.status(500);
@@ -25,7 +24,7 @@ export const obtenerConglomeradosController = async (req: Request,res:Response) 
 export const obtenerConglomeradoPorIdController  = async (req:Request, res: Response) => {
     const { id } = req.params;
     try {
-        const conglomerado = await conglomeradoService.obtenerMunicipioPorId(Number(id))
+        const conglomerado = await conglomeradoService.obtenerConglomeradoPorId(Number(id))
         if (conglomerado) {
             res.json(conglomerado);
         } else {

@@ -7,7 +7,12 @@ import { Prisma } from "@prisma/client";
  * @returns lista brigadas
  */
 export async function obtenerBrigadas() {
-    return prisma.brigada.findMany();  
+    return prisma.brigada.findMany({
+        include: {
+             Municipio: true,
+            Conglomerado: true
+        }
+    });  
 }
 
 /**

@@ -14,9 +14,14 @@ export const importarDesdeExcelController = async (
 
     console.log("Archivo recibido:", req.file.path);
 
-    await importarBrigadistasDesdeExcel(req.file.path);
+    const correosNuevos = await importarBrigadistasDesdeExcel(req.file.path);
 
-    res.status(200).json({ message: "Importación completada." });
+    console.log("Correos que se van a enviar:", correosNuevos);
+
+    res.status(200).json({ 
+      message: "Importación completada.",
+      correos: correosNuevos, 
+    });
   } catch (error) {
     console.error("Error al importar desde Excel:", error);
     res.status(500).json({

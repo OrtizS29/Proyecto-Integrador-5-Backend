@@ -12,6 +12,8 @@ export const importarBrigadistasDesdeExcel = async (filePath: string) => {
     const titulos = titulosSheet;  // Tipo ya inferido como TituloExcel[]
     const contactos = contactosSheet;  // Tipo ya inferido como ContactoExcel[]
   
+    const correosNuevos: string[] = [];
+
     // Ahora puedes proceder a trabajar con los datos y mapearlos como antes
     for (const b of brigadistas) {
       const doc = b.Numero_Documento;
@@ -67,5 +69,12 @@ export const importarBrigadistasDesdeExcel = async (filePath: string) => {
           },
         },
       });
+      console.log("hola");
+      if(b.Correo_Electronico){
+        console.log("📧 Correo encontrado:", b.Correo_Electronico);
+        correosNuevos.push(b.Correo_Electronico);
+      }
     }
+
+    return correosNuevos;
   };

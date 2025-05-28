@@ -5,13 +5,16 @@ import {
     crearPostulacionesController,
     eliminarPostulacionesController,
     obtenerPostulacionPorIdController,
+    obtenerPostulacionPorBrigadaController
 } from "../controlador/postulacionController.ts";
 
 const router = Router();
 
 router.get("/",obtenerPostulacionesController);
 
-router.get("/:id", obtenerPostulacionPorIdController);
+router.get("/brigadista/:id", obtenerPostulacionPorIdController);
+
+router.get("/brigada/:id", obtenerPostulacionPorBrigadaController);
 
 router.post("/",crearPostulacionesController);
 

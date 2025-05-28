@@ -56,3 +56,21 @@ export async function obtenerPostulacionesPorBrigadista(idBrigadista: number) {
 export async function eliminarPostulacion(id: number) {
     return prisma.postulacion.delete({ where: { id } });
 }
+
+export async function obtenerPostulacionesPorBrigada(idBrigada: number){
+    return prisma.postulacion.findMany({
+        where: {
+            ID_Brigada: idBrigada
+        },
+        include: {
+            Brigada: {
+                include: {
+                    Municipio: true,
+                    
+                }
+                
+            },
+            Brigadista: true
+        }
+    });
+}

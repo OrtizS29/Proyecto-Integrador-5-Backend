@@ -9,7 +9,7 @@ import { Prisma } from "@prisma/client";
 export async function obtenerBrigadas() {
     return prisma.brigada.findMany({
         include: {
-             Municipio: true,
+            Municipio: true,
             Conglomerado: true
         }
     });  

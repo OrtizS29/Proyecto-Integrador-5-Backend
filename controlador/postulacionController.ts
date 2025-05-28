@@ -66,3 +66,17 @@ export const obtenerPostulacionPorIdController  = async (req:Request, res: Respo
         res.status(500);
     }
 }
+
+export const obtenerPostulacionPorBrigadaController  = async (req:Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const postulacion = await postulacionService.obtenerPostulacionesPorBrigada(Number(id))
+        if (postulacion) {
+            res.json(postulacion);
+        } else {
+            res.status(404).json({ message: "Postulacion no encontrada" });
+        }
+    } catch (error) {
+        res.status(500);
+    }
+}

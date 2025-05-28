@@ -28,6 +28,10 @@ export async function crearPostulacion(data: Prisma.PostulacionCreateInput) {
     return prisma.postulacion.create({ data });
 }
 
+export async function actualizarPostulacion(id: number, data: Prisma.PostulacionUpdateInput) {
+    return prisma.postulacion.update({ where: { id }, data });
+}
+
 /**
  * Funcion que obtiene una postulacion por su ID.
  * @param id 

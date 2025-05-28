@@ -32,6 +32,17 @@ export const crearPostulacionesController = async (req:Request, res: Response) =
     }
 }
 
+export const actualizarPostulacionController = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const postulacionActualizado = await postulacionService.actualizarPostulacion(Number(id), req.body);
+        res.json(postulacionActualizado);
+    } catch (error: any) {
+        console.error("Error al actualizar postulacion:", error);
+        res.status(500).json({ error: error.message || "Error del servidor" });
+    }
+};
+
 /**
  * 
  * @param req 

@@ -12,6 +12,7 @@ import tituloRoutes from "./Routes/tituloRoutes.ts";
 import excelRoutes from "./Routes/excelRoutes.ts";
 import municipioRoutes from "./Routes/municipioRoutes.ts";
 import conglomeradoRoutes from "./Routes/conglomeradoRoutes.ts";
+import postulacionRoutes from "./Routes/postulacionRoutes.ts";
 import authRoutes from "./Routes/authRoutes.ts";
 
 
@@ -84,6 +85,8 @@ app.use("/api/conglomerado",conglomeradoRoutes);
  * Aquí se montan las rutas enviar los municipios
  */
 app.use("/api/municipio",municipioRoutes);
+
+app.use("/api/postulacion", postulacionRoutes);
 
 app.use("/api/auth", authRoutes);
 

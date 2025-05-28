@@ -18,6 +18,7 @@ model Brigada {
   Municipio       Municipio    @relation(fields: [ID_Municipio], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ID_Municipio")
   Brigadista      Brigadista[]
   Novedad         Novedad[]
+  Postulacion     Postulacion[]
 }
 
 model Brigadista {
@@ -51,6 +52,7 @@ model Brigadista {
   Brigada                        Brigada?              @relation(fields: [Id_Brigada], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "Id_Brigada")
   Contacto_Emergencia            Contacto_Emergencia[]
   Titulos                        Titulos[]
+  Postulacion     Postulacion[]
 }
 
 model Contacto_Emergencia {
@@ -99,4 +101,14 @@ model User {
   createdAt   DateTime    @db.Date
   updatedAt   DateTime    @db.Date
   Brigadista  Brigadista?
+}
+
+model Postulacion {
+  id             Int         @id @default(autoincrement())
+  cargo          String
+  estado         String      @default("pendiente")
+  ID_Brigada     Int
+  Brigada        Brigada     @relation(fields: [ID_Brigada], references: [id])
+  ID_Brigadista  Int
+  Brigadista     Brigadista  @relation(fields: [ID_Brigadista], references: [Numero_Documento])
 }

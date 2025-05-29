@@ -30,6 +30,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         Email: decoded.email ?? "sin-email@dominio.com",
         createdAt: now,
         updatedAt: now,
+        Roll: "a"
       },
     });
 

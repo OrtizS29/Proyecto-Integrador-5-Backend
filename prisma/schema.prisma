@@ -8,14 +8,14 @@ datasource db {
 }
 
 model Brigada {
-  id              Int          @id @default(autoincrement())
+  id              Int           @id @default(autoincrement())
   Nombre          String
-  Fecha_Inicio    DateTime     @db.Date
+  Fecha_Inicio    DateTime      @db.Date
   Presupuesto     String
   ID_Municipio    Int
   ID_Conglomerado Int
-  Conglomerado    Conglomerado @relation(fields: [ID_Conglomerado], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ID_Conglomerado")
-  Municipio       Municipio    @relation(fields: [ID_Municipio], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ID_Municipio")
+  Conglomerado    Conglomerado  @relation(fields: [ID_Conglomerado], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ID_Conglomerado")
+  Municipio       Municipio     @relation(fields: [ID_Municipio], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ID_Municipio")
   Brigadista      Brigadista[]
   Novedad         Novedad[]
   Postulacion     Postulacion[]
@@ -51,8 +51,8 @@ model Brigadista {
   User                           User?                 @relation(fields: [UserID], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "IDToken")
   Brigada                        Brigada?              @relation(fields: [Id_Brigada], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "Id_Brigada")
   Contacto_Emergencia            Contacto_Emergencia[]
+  Postulacion                    Postulacion[]
   Titulos                        Titulos[]
-  Postulacion     Postulacion[]
 }
 
 model Contacto_Emergencia {
@@ -100,15 +100,16 @@ model User {
   Nombre      String
   createdAt   DateTime    @db.Date
   updatedAt   DateTime    @db.Date
+  Roll        String
   Brigadista  Brigadista?
 }
 
 model Postulacion {
-  id             Int         @id @default(autoincrement())
-  cargo          String
-  estado         String      @default("pendiente")
-  ID_Brigada     Int
-  Brigada        Brigada     @relation(fields: [ID_Brigada], references: [id])
-  ID_Brigadista  Int
-  Brigadista     Brigadista  @relation(fields: [ID_Brigadista], references: [Numero_Documento])
+  id            Int        @id @default(autoincrement())
+  cargo         String
+  estado        String     @default("pendiente")
+  ID_Brigada    Int
+  ID_Brigadista Int
+  Brigada       Brigada    @relation(fields: [ID_Brigada], references: [id])
+  Brigadista    Brigadista @relation(fields: [ID_Brigadista], references: [Numero_Documento])
 }

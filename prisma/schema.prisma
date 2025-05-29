@@ -110,6 +110,6 @@ model Postulacion {
   estado        String     @default("pendiente")
   ID_Brigada    Int
   ID_Brigadista Int
-  Brigada       Brigada    @relation(fields: [ID_Brigada], references: [id])
-  Brigadista    Brigadista @relation(fields: [ID_Brigadista], references: [Numero_Documento])
+  Brigada       Brigada    @relation(fields: [ID_Brigada], references: [id], onDelete: Cascade)
+  Brigadista    Brigadista @relation(fields: [ID_Brigadista], references: [Numero_Documento], onDelete: Cascade)
 }

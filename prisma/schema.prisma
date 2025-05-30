@@ -97,7 +97,7 @@ model User {
   id          Int         @id @default(autoincrement())
   FirebaseUid String      @unique
   Email       String
-  Nombre      String
+  Nombre      String?
   createdAt   DateTime    @db.Date
   updatedAt   DateTime    @db.Date
   Roll        String

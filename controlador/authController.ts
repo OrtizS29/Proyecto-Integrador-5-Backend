@@ -75,7 +75,14 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       });
     }
 
-    res.status(200).json({ success: true, user });
+    const userConBrigadista = await prisma.user.findUnique({
+      where: { id: user.id },
+      include: { Brigadista: true }
+    });
+
+    console.log(userConBrigadista);
+
+    res.status(200).json({ success: true, user: userConBrigadista });
   } catch (error: any) {
     console.error("Error en login:", error);
     res.status(500).json({ error: "Error interno del servidor", details: error.message });

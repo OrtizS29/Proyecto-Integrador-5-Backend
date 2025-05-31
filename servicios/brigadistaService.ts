@@ -63,19 +63,30 @@ export async function eliminarBrigadista(Numero_Documento: number) {
 }
 
 export async function obtenerBrigadasPorIdB(id: number) {
-    return prisma.brigadista.findMany({
-        where: {
-            Id_Brigada: id,
-        },
+  return prisma.brigadista.findMany({
+    where: {
+      Id_Brigada: id,
+    },
+    select: {
+      Numero_Documento: true,
+      Nombre: true,
+      Apellido: true,
+      Profesion: true,
+      Cargo: true,
+      Correo_Electronico: true,
+      Brigada: {
         select: {
-            Numero_Documento: true,
-            Nombre: true,
-            Apellido: true,
-            Profesion: true,
-            Cargo: true,
-            Correo_Electronico: true,
-        },
-    });
+          Nombre: true,
+          Fecha_Inicio: true,
+          Municipio: {
+            select: {
+              Nombre: true,  // aquí el campo del municipio que quieres mostrar
+            }
+          }
+        }
+      }
+    }
+  });
 }
 
 export const asignarBrigada = async (

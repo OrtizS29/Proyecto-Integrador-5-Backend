@@ -14,6 +14,7 @@ import municipioRoutes from "./Routes/municipioRoutes.ts";
 import conglomeradoRoutes from "./Routes/conglomeradoRoutes.ts";
 import postulacionRoutes from "./Routes/postulacionRoutes.ts";
 import authRoutes from "./Routes/authRoutes.ts";
+import crearAdminRoutes from "./Routes/crearAdminRouter.ts";
 
 
 
@@ -89,6 +90,8 @@ app.use("/api/municipio",municipioRoutes);
 app.use("/api/postulacion", postulacionRoutes);
 
 app.use("/api/auth", authRoutes);
+
+app.use("/api/", crearAdminRoutes);
 
 /*
  * Escribe un texto plano
